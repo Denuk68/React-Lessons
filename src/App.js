@@ -1,8 +1,9 @@
+import Users from "./components/Users/Users";
+
 export default function App() {
   return (
-    <div>
-     
+    <div className="users">
+      <Users/>     
     </div>
-
   );
 }
