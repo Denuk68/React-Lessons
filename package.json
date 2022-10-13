@@ -13,15 +13,16 @@
     "web-vitals": "^2.1.4",
     "react-router": "6.4.2",
     "redux": "4.2.0",
-    "react-redux": "8.0.4"
+    "react-redux": "8.0.4",
+    "axios": "1.1.2"
   },
   "devDependencies": {
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/react-router-dom": "5.3.3",
     "@types/react-router": "5.1.19",
-    "@types/react-redux":"7.1.24",
-    "@types/redux":"3.6.0"
+    "@types/react-redux": "7.1.24",
+    "@types/redux": "3.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
