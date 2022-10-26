@@ -1,6 +1,6 @@
 import User from '../user/User';
 import './Users.css';
-import { getUsers } from "../../services/fetch.service";
+import { getUsers, getPostOfUser } from "../../services/fetch.service";
 import { useEffect, useState } from 'react';
 
 
@@ -13,7 +13,9 @@ export default function Users() {
     }, [])
 
     const choseUser = (u) => {
-        setUser({ ...u })
+        setUser({ ...u });
+
+        getPostOfUser(u.id).then(data => console.log(data))
     }
 
     return (
@@ -23,7 +25,7 @@ export default function Users() {
             </div>
             {
                 user && (<div className={"chosen-one"}>
-                    {JSON.stringify(user.name)}
+                    {JSON.stringify(user)}
                 </div>)
             }
 
