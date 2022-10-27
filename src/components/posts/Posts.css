@@ -1,0 +1,15 @@
+.wrap{
+    display: flex;
+}
+
+.wrap > div{
+    width: 50%;
+}
+
+.posts{
+    background: silver;
+}
+
+.post-info{
+    background: mistyrose;
+}
