@@ -27,7 +27,7 @@ export default function ControlledForm() {
         <div>
             <form onSubmit={onSubmitForm}>
                 <input type={"text"} name={"username"} value={name} onInput={onInputChangeName} />
-                <input type={"email"} name={"eanil"} value={email} onInput={onInputChangeEmail} />
+                <input type={"email"} name={"email"} value={email} onInput={onInputChangeEmail} />
                 <input type={"submit"} value={"save"} />
             </form>
             <div>{JSON.stringify(user)}</div>
