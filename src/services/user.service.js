@@ -1,7 +1,7 @@
-const saveUser = ({ userername, email }) => {
+const saveUser = ({ name, email }) => {
     fetch('https://jsonplaceholder.typicode.com/users', {
         method: 'POST', //save
-        body: JSON.stringify({ userername, email }),
+        body: JSON.stringify({ name, email }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
