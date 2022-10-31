@@ -1,11 +1,8 @@
-// http://jsonplaceholder.typicode.com/comments
-
-const createNewComment = (comment) => {
+const createNewPost = ({ title, body }) => {
     return fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
-            body: comment.body,
-            email: comment.email,
+            title, body,
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -15,4 +12,4 @@ const createNewComment = (comment) => {
         .then((json) => console.log(json));
 }
 
-export { createNewComment }
+export { createNewPost }
