@@ -17,7 +17,7 @@ export default function ControlledForm() {
         e.preventDefault();
         let newComment = { body, email };
         setComment({ ...newComment });
-        createNewComment(comment)
+        createNewComment(newComment)
     }
 
     return (

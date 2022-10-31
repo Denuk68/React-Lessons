@@ -1,7 +1,5 @@
-// http://jsonplaceholder.typicode.com/comments
-
 const createNewComment = (comment) => {
-    return fetch('https://jsonplaceholder.typicode.com/posts', {
+    return fetch('https://jsonplaceholder.typicode.com/comments', {
         method: 'POST',
         body: JSON.stringify({
             body: comment.body,
