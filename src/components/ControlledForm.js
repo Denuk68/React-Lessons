@@ -18,9 +18,11 @@ export default function ControlledForm() {
     }
     const onInputChangeName = (e) => {
         setName(e.target.value)
+        console.log(e.target.value)
     }
     const onInputChangeEmail = (e) => {
         setEmail(e.target.value)
+        console.log(e.target.value)
     }
 
     return (
