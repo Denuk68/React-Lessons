@@ -1,3 +1,4 @@
+// Контрольована форма
 import React from 'react';
 import { useState } from 'react';
 import { saveUser } from '../services/user.service';
@@ -18,15 +19,14 @@ export default function ControlledForm() {
     }
     const onInputChangeName = (e) => {
         setName(e.target.value)
-        console.log(e.target.value)
     }
     const onInputChangeEmail = (e) => {
         setEmail(e.target.value)
-        console.log(e.target.value)
     }
 
     return (
         <div>
+            <h1>Контрольована форма</h1>
             <form onSubmit={onSubmitForm}>
                 <input type={"text"} name={"username"} value={name} onInput={onInputChangeName} />
                 <input type={"email"} name={"email"} value={email} onInput={onInputChangeEmail} />
