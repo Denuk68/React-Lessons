@@ -32,7 +32,7 @@ export default function UpdateUsers() {
 
             <p>Update user:</p>
             <form>
-                <input type={"text"} name={"name"} placeholder={"name"} value />
+                <input type={"text"} name={"name"} placeholder={"name"}  />
                 <input type={"email"} name={"email"} placeholder={"email"} />
                 <button>Update</button>
             </form>
