@@ -4,10 +4,10 @@ import A from "./components/A";
 export let MyContext = createContext();
 
 export default function App() {
-  let title = "okten";
+  let title = "Hello, i'm context ";
   return (
     <div>
-      <MyContext.Provider value={'Context'}>
+      <MyContext.Provider value={title}>
         <A />
       </MyContext.Provider>
     </div>
