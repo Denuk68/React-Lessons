@@ -1,14 +1,23 @@
-const getTodos = () => {
-    return fetch("https://jsonplaceholder.typicode.com/todos").then(data => data.json())
-}
-const getAlbums = () => {
-    return fetch("https://jsonplaceholder.typicode.com/albums").then(data => data.json())
-}
-const getComments = () => {
-    return fetch("https://jsonplaceholder.typicode.com/comments").then(data => data.json())
-}
-const getPostById = (id) => {
-    return fetch("https://jsonplaceholder.typicode.com/posts/" + id).then(data => data.json())
+const getUsers = () => {
+    return fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json())
 }
 
-export { getTodos, getAlbums, getComments, getPostById }
+const postUser = ({ name, email }) => {
+    return fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'POST',
+        body: JSON.stringify({
+            name, email
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+}
+
+const getUser = (id) => {
+    return fetch("https://jsonplaceholder.typicode.com/users/" + id).then(data => data.json())
+}
+
+export { getUsers, postUser, getUser }
