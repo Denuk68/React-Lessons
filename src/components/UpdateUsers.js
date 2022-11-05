@@ -10,10 +10,16 @@ export default function UpdateUsers() {
         getUsers().then(data => setUsers([...data]))
     }, []);
 
-
+    const [userId, setUserId] = useState(1);
     const getUserById = (e) => {
-        let id = e.target.value;
-        console.log(id)
+        setUserId(e.target.value);
+    }
+
+    const [user, setUser] = useState({});
+
+    const getUserOnSubmit = (e) => {
+        e.preventDefault();
+        getUser(userId).then(data => console.log(data))
     }
 
     return (
@@ -21,7 +27,7 @@ export default function UpdateUsers() {
             <h1>Update users page</h1>
 
             <p>Select user:</p>
-            <form>
+            <form onSubmit={getUserOnSubmit}>
                 <select onChange={getUserById}>
                     {users.map(user => <User key={user.id} user={user} />)}
                 </select>
@@ -32,7 +38,7 @@ export default function UpdateUsers() {
 
             <p>Update user:</p>
             <form>
-                <input type={"text"} name={"name"} placeholder={"name"}  />
+                <input type={"text"} name={"name"} placeholder={"name"} />
                 <input type={"email"} name={"email"} placeholder={"email"} />
                 <button>Update</button>
             </form>
