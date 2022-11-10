@@ -2,6 +2,3 @@
 /users - отримати всі юзери та вивести їх https://jsonplaceholder.typicode.com/users
 /create-users - сторінка з формою створення нового юзера https://jsonplaceholder.typicode.com/users (method: POST)
 
-Додатково
-/update-users - сторінка з двома формами - 1 форма з select, в якій  можна обрати який user редагувати. Після вибору
-поточні данні про user з'являються на другій формі, пілся редагування яких і відправки user оновлюється на сервері.

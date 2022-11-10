@@ -16,8 +16,6 @@ const postUser = ({ name, email }) => {
         .then((json) => console.log(json));
 }
 
-const getUser = (id) => {
-    return fetch("https://jsonplaceholder.typicode.com/users/" + id).then(data => data.json())
-}
 
-export { getUsers, postUser, getUser }
+
+export { getUsers, postUser }
