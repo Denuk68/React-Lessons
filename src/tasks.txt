@@ -6,7 +6,7 @@
 Вложеність :
 App > Users > User + UserDetails
 App > Posts > Post + PostDetails
-App > Comments > Comment + CommentDetails
+App > Albums > Album + AlbumDetails
 
 Отримувати дані з jsonplaceholder:
 
