@@ -7,4 +7,10 @@ const getPosts = () => {
 const getPost = (id) => {
     return fetch("https://jsonplaceholder.typicode.com/posts/" + id).then(data => data.json())
 }
-export { getUsers, getPosts, getPost }
+const getAlbums = () => {
+    return fetch("https://jsonplaceholder.typicode.com/albums").then(data => data.json())
+}
+const getAlbum = (id) => {
+    return fetch("https://jsonplaceholder.typicode.com/albums/" + id).then(data => data.json())
+}
+export { getUsers, getPosts, getPost, getAlbums, getAlbum }
