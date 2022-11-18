@@ -1,23 +1,18 @@
 const reducer = (state, action) => {
-    if (action.obj === "1" && action.diya === "+") {
-        return { ...state, a: state.a++ }
+    switch (action.type) {
+        case "GET_USERS":
+            let users = action.payload;
+            return { ...state, users: users }
+        case "SAVE_USER":
+            let user = action.payload;
+            // state.users.push(user);
+            // action to service postMethod saveUser(user)
+            return{...state}
+
+        default:
+            return { ...state }
+
     }
-    else if (
-        action.obj === "1" && action.diya === "-"
-    ) {
-        return { ...state, a: state.a-- }
-    }
-    else if (
-        action.obj === "2" && action.diya === "+"
-    ) {
-        return { ...state, b: state.b++ }
-    }
-    else if (
-        action.obj === "2" && action.diya === "-"
-    ) {
-        return { ...state, b: state.b-- }
-    }
-    return { ...state }
 }
 
-export default  reducer;
+export default reducer;
