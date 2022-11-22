@@ -1,27 +1,27 @@
 import { useReducer } from "react";
+import {reducer} from "./reducers/reducer";
 
-const reducer = (state, action) => {
-   if(action.diya === "+10"){
-    return {...state, number: state.number +10 }
-   }
-   else if(action.diya === "-2"){
-    return {...state, number: state.number-2}
-   }
-   else{
-    return {...state}
-   }
- }
 
 export default function App() {
   
-  const[{number} , dispatch]= useReducer(reducer, {number: 0})
+  const[state , dispatch]= useReducer(reducer, {a: 0, b: 0, c:0})
   
   return (
     <div>
-      number: {number}
+      number A: {state.a}
       <br/>
-      <button onClick={() => {dispatch({diya: '+10'})}}>+ 10</button>
-      <button onClick={() => {dispatch({diya: '-2'})}}>- 2</button>
+      <button onClick={() => {dispatch({type: "PLUS_A"})}}>Plus</button>
+      <button onClick={() => {dispatch({type: "MINUS_A"})}}>Minus</button>
+      <br/><br/>
+      number B: {state.b}
+      <br/>
+      <button onClick={() => {dispatch({type: "PLUS_B"})}}>Plus</button>
+      <button onClick={() => {dispatch({type: "MINUS_B"})}}>Minus</button>
+      <br/><br/>
+      number С: {state.c}
+      <br/>
+      <button onClick={() => {dispatch({type: "PLUS_C"})}}>Plus</button>
+      <button onClick={() => {dispatch({type: "MINUS_C"})}}>Minus</button>
     </div>
   );
 }
