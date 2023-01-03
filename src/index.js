@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from "redux";
+import { legacy_createStore as createStore} from "redux";
 import { Provider } from "react-redux"
 
 
 let initialState = { user: [] };
 const rootReducer = (state = initialState, action) => {
-  console.log(state);
+  console.log("state");
   return state;
 }
-export let store = crateStore(rootReducer);
+export let store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
