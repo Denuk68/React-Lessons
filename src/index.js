@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore as createStore} from "redux";
+import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux"
 
 
 let initialState = { user: [] };
+
 const rootReducer = (state = initialState, action) => {
-  console.log("state");
-  return state;
+  console.log("reducer ", state)
+  switch (action.type) {
+    case "FETCH_USERS":
+      return { ...state };
+    default: return state;
+  }
 }
 export let store = createStore(rootReducer);
 
