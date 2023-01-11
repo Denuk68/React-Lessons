@@ -7,13 +7,14 @@ import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux"
 
 
-let initialState = { user: [] };
 
-const rootReducer = (state = initialState, action) => {
-  console.log("reducer ", state)
+const rootReducer = (state = { users: [] }, action) => {
   switch (action.type) {
     case "FETCH_USERS":
-      return { ...state };
+      
+      return { ...state, users: [...action.payload] };
+    case "CLEAR_STORE":
+      return { ...state, users: [] }
     default: return state;
   }
 }
