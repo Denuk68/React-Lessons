@@ -1,9 +1,9 @@
 const url = 'https://jsonplaceholder.typicode.com/users';
 
-const fetchUsers = () => {
+const fetchUsersApi = () => {
     return fetch(url).then(value => value.json())
 }
-const addUser = (user) => {
+const pushUserApi = (user) => {
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -14,4 +14,4 @@ const addUser = (user) => {
     }).then(value => value.json())
 }
 
-export { fetchUsers, addUser }
+export { fetchUsersApi, pushUserApi }

@@ -1,17 +1,24 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, fetchUsers } from "./services/users.api";
+import { fetchUsersApi, pushUserApi } from "./services/users.api";
+
+// import { fetchUsers, pushUser } from "./redux/actions/actions";
+import { fetchUsers, pushUser } from './redux/actions'; // index.js акамулятор папки в якій він знаходиться. Коли ми звертаємося до папки , ми звертаємося до index файлу , а ын уже до інших файлів. ---- ЦЕ ПРОСТО ОПТИМІЗАЦІЯ КОДУ. 
 
 export default function App() {
-  let state = useSelector(state => state);
+  let state = useSelector(state => {    
+    let { rootReducer } = state;
+    return rootReducer;
+  });
+  
   let dispatch = useDispatch();
   let { users } = state;
 
 
   // todo create command to fetch data from jsonplaceholder
   useEffect(() => {
-    fetchUsers().then(value => {
-      dispatch({ type: 'FETCH_USERS', payload: value })
+    fetchUsersApi().then(value => {
+      dispatch(fetchUsers(value))
     });
   }, [])
 
@@ -21,9 +28,9 @@ export default function App() {
     let name = e.target.name.value;
     let user = { name }
     // todo send request
-    addUser(user).then(value => {
+    pushUserApi(user).then(value => {
       console.log('saved users ->', value);
-      dispatch({type:'PUSH_USERS', payload: value})
+      dispatch(pushUser(value))
     })
   }
 
