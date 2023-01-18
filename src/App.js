@@ -1,32 +1,49 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addUser, loadUsers } from "./redux/actions";
-import { getUsers, saveUser } from "./services/service.api";
 import { useEffect } from "react";
+import { addUser, loadUsers } from "./redux/actions";
+import { useSelector, useDispatch } from "react-redux";
+
+// ReduxThunk потрібний для того щоб  зробити actions асинхронними
+const fetchUsersWithThunk = () => async (dispatch) => {
+  let response = await (await fetch("https://jsonplaceholder.typicode.com/users")).json();
+  dispatch(loadUsers(response))
+}
+
+const addUserWithThunk = (userData) => async (dispatch) => {
+  let response = await fetch("https://jsonplaceholder.typicode.com/users", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: userData.name,
+    })
+  });
+  let savedUser = await response.json();
+  dispatch(addUser(savedUser))
+
+}
+
 
 
 
 export default function App() {
   let state = useSelector(state => state);
   let dispatch = useDispatch();
-  let { users } = state;
 
   useEffect(() => {
-    getUsers().then(data => {
-      dispatch(loadUsers(data))
-    })
-  }, []);
+    dispatch(fetchUsersWithThunk());
+  }, [])
 
-  let handleAddUser = (e) => {
+  const xxx = (e) => {
     let user = { name: "den" };
-    saveUser(user).then(
-      value => dispatch(addUser(value))
-    );
+    dispatch(addUserWithThunk(user))
   }
 
   return (
     <div>
-      <button onClick={handleAddUser}>add user</button>
-      {users.map(value => <div key={value.id}>{value.name}</div>)}
+      <button onClick={xxx}>save user</button>
+      {state.users.map(value => <div key={value.id}>{value.name}</div>)}
     </div>
   );
 }

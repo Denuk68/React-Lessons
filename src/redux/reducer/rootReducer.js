@@ -2,6 +2,7 @@ import { LOAD_USERS, ADD_USER } from '../actions';
 
 let initialState = { users: [] };
 const rootReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
         case LOAD_USERS:
             // action.payload - we will get from useEffect -> service->jsonplaceholder
